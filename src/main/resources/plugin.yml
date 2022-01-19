@@ -1,0 +1,11 @@
+name: CopperTools
+version: ${project.version}
+main: com.github.ms5984.learnspigotsmp.coppertools.CopperTools
+api-version: 1.18
+authors: [ ms5984 ]
+description: ${project.description}
+commands:
+  ctool:
+    permission: coppertools.debug
+    aliases: [ct]
+    description: A debug command to get all provided items
