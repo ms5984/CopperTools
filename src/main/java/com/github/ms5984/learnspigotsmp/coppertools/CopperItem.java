@@ -233,6 +233,114 @@ public enum CopperItem {
                     .setIngredient('S', Material.STICK);
         }
     },
+    /**
+     * A modified golden helmet.
+     * <p>
+     * Possesses Durability 1 silently.
+     *
+     * @since 1.1.0
+     */
+    HELMET(Component.text("Copper Helmet").color(CopperTools.Colors.COPPER.textColor), Material.GOLDEN_HELMET) {
+        @Override
+        public ItemStack getItem() {
+            final ItemStack helmet = new ItemStack(baseMat);
+            final ItemMeta itemMeta = helmet.getItemMeta();
+            itemMeta.displayName(customName);
+            itemMeta.addEnchant(Enchantment.DURABILITY, 1, true);
+            itemMeta.getPersistentDataContainer().set(flag(), PersistentDataType.BYTE, (byte) 1);
+            helmet.setItemMeta(itemMeta);
+            helmet.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            return helmet;
+        }
+
+        @Override
+        public Recipe getRecipe() {
+            return new ShapedRecipe(namespacedKey(), getItem())
+                    .shape("CCC", "C C")
+                    .setIngredient('C', Material.COPPER_INGOT);
+        }
+    },
+    /**
+     * A modified golden chestplate.
+     * <p>
+     * Possesses Durability 2 silently.
+     *
+     * @since 1.1.0
+     */
+    CHESTPLATE(Component.text("Copper Chestplate").color(CopperTools.Colors.COPPER.textColor), Material.GOLDEN_CHESTPLATE) {
+        @Override
+        public ItemStack getItem() {
+            final ItemStack chestplate = new ItemStack(baseMat);
+            final ItemMeta itemMeta = chestplate.getItemMeta();
+            itemMeta.displayName(customName);
+            itemMeta.addEnchant(Enchantment.DURABILITY, 2, true);
+            itemMeta.getPersistentDataContainer().set(flag(), PersistentDataType.BYTE, (byte) 1);
+            chestplate.setItemMeta(itemMeta);
+            chestplate.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            return chestplate;
+        }
+
+        @Override
+        public Recipe getRecipe() {
+            return new ShapedRecipe(namespacedKey(), getItem())
+                    .shape("C C", "CCC", "CCC")
+                    .setIngredient('C', Material.COPPER_INGOT);
+        }
+    },
+    /**
+     * A modified pair of golden leggings.
+     * <p>
+     * Possesses Durability 1 silently.
+     *
+     * @since 1.1.0
+     */
+    LEGGINGS(Component.text("Copper Leggings").color(CopperTools.Colors.COPPER.textColor), Material.GOLDEN_LEGGINGS) {
+        @Override
+        public ItemStack getItem() {
+            final ItemStack leggings = new ItemStack(baseMat);
+            final ItemMeta itemMeta = leggings.getItemMeta();
+            itemMeta.displayName(customName);
+            itemMeta.addEnchant(Enchantment.DURABILITY, 1, true);
+            itemMeta.getPersistentDataContainer().set(flag(), PersistentDataType.BYTE, (byte) 1);
+            leggings.setItemMeta(itemMeta);
+            leggings.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            return leggings;
+        }
+
+        @Override
+        public Recipe getRecipe() {
+            return new ShapedRecipe(namespacedKey(), getItem())
+                    .shape("CCC", "C C", "C C")
+                    .setIngredient('C', Material.COPPER_INGOT);
+        }
+    },
+    /**
+     * A modified pair of golden boots.
+     * <p>
+     * Possesses Durability 1 silently.
+     *
+     * @since 1.1.0
+     */
+    BOOTS(Component.text("Copper Boots").color(CopperTools.Colors.COPPER.textColor), Material.GOLDEN_BOOTS) {
+        @Override
+        public ItemStack getItem() {
+            final ItemStack boots = new ItemStack(baseMat);
+            final ItemMeta itemMeta = boots.getItemMeta();
+            itemMeta.displayName(customName);
+            itemMeta.addEnchant(Enchantment.DURABILITY, 1, true);
+            itemMeta.getPersistentDataContainer().set(flag(), PersistentDataType.BYTE, (byte) 1);
+            boots.setItemMeta(itemMeta);
+            boots.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+            return boots;
+        }
+
+        @Override
+        public Recipe getRecipe() {
+            return new ShapedRecipe(namespacedKey(), getItem())
+                    .shape("C C", "C C")
+                    .setIngredient('C', Material.COPPER_INGOT);
+        }
+    },
     ;
 
     // lazy-caches flag key (see static method CopperItem#flag)
