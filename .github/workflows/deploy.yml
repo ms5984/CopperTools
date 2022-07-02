@@ -3,6 +3,9 @@ name: Release
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      version:
+        default: 'default'
 
 jobs:
   release:
@@ -12,10 +15,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Java and Maven
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v3.4.0
         with:
           java-version: 17
           distribution: 'temurin'
+      
+      - name: Update version
+        if: ${{ inputs.version != 'default' }}
+        run: 'mvn versions:set -DnewVersion=${{ inputs.version }}'
 
       - name: Release Maven package
         uses: samuelmeuli/action-maven-publish@v1.4.0
